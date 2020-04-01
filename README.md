@@ -45,3 +45,26 @@ double c2=3;
 DecimalFormat df=new DecimalFormat("0.00");
 String ss=df.format(c1/c2);
 System.out.println(r4);
+
+Random类
+使用Random类必须先创建对象，如
+Random ran=new Random();
+int r1=ran.nextInt(100);//0-100之间的数
+
+BigInteger类：表示大整数（超过了long类型能表示的值）类，用于封装大整数类的数学运算
+BigInteger big1=new BigInteger("2222222222");
+BigInteger big2=new BigInteger("6666666666");
+//加减乘除、取模
+System.out.println(big1.add(big2));
+System.out.println(big1.subtract(big2));
+System.out.println(big1.multiply(big2));
+System.out.println(big1.divide(big2));
+System.out.println(big1.remainer(big2));
+
+BigDecimal类：表示超大 小数类，用于小数类的精确数学运算
+BigDecimal bigd1=new BigDecimal("3.23422");
+BigDecimal bigd2=new BigDecimal("2.414");
+//其他与上面类似
+//除不尽会报错，System.out.println(bigd1.divide(bigd2,4,BigDecimal.ROUND_HALF_UP));来解决
+
+补充：对象克隆技术（不能简单赋值时）
