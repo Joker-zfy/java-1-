@@ -68,3 +68,36 @@ BigDecimal bigd2=new BigDecimal("2.414");
 //除不尽会报错，System.out.println(bigd1.divide(bigd2,4,BigDecimal.ROUND_HALF_UP));来解决
 
 补充：对象克隆技术（不能简单赋值时）
+
+Timer类是一种线程设施，可以用来实现某一个时间或者某一段时间后安排一个任务的执行，Timer类需要与TimerTast类配合使用。
+三种应用示例：
+package com.time;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class Test1 {
+    public static void main(String[] args) throws ParseException {
+
+        Timer ti = new Timer();//控制定时任务的执行方式
+
+        TimerTask task = new TimerTask() { //定义定时任务的执行
+            @Override
+            public void run() {
+                System.out.println("定时任务被执行");
+            }
+        };
+        //一段时间后执行
+        //ti.schedule(task, 3000);//单位是毫秒，3000即3秒
+
+        //固定时间点执行
+        //ti.schedule(task,new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").parse("2020/04/05 11:00:00"));
+
+        //重复执行任务
+        ti.schedule(task,2000,1000);//2秒后开始执行，每秒执行一次
+
+    }
+}
+
